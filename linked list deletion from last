@@ -35,10 +35,10 @@ void createnode()
         ptr->next=newnode;
     }
 }
-void deletebeg(){
-    for(ptr=start; 
-    ptr&&ptr->next&&ptr->next->next; 
-    ptr=ptr->next);
+void deletelast(){
+    ptr=start;
+    while(ptr->next->next!=NULL)
+    ptr=ptr->next;
     ptr->next=NULL;
 }
 int main()
@@ -53,7 +53,7 @@ int main()
     cout<<"Existing linked list is ";
     display();
     cout<<"\nafter deletion from last";
-    deletebeg();
+    deletelast();
     display();
     cout<<"\nFreeing memory.....";
     ptr=start; 
